@@ -7,6 +7,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     height: 100vh;
+    min-width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,6 +17,7 @@ body {
 }
 
 .panelContainer {
+    overflow: hidden;
     width: 90vw;
     display: flex;
     align-items: center;
@@ -32,7 +34,8 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
-    transition: flex .5s ease;
+    transition: flex .5s ease-in;
+    box-shadow: 3px 1px 1px 1px white;
 }
 
 .panel.active {
@@ -40,16 +43,25 @@ body {
 }
 
 .panel h3 {
-    color: #fff;
+    color: rgb(255, 255, 255);
     position: absolute;
     bottom: 0;
     left: 40px;
     font-size: 26px;
     opacity: 0;
     text-transform: capitalize;
+    background-color: rgba(0,0,0,0.8);
+    padding: 8px;
+    border-radius: 6px;
 }
 
 .panel.active h3{
     opacity: 1;
-    transition: opacity .6s ease .3s;
+    transition: opacity .3s ease-out .5s;
+}
+
+@media screen and (max-width: 480px){
+    .panel:nth-of-type(4), .panel:nth-of-type(5){
+        display: none;
+    }
 }
